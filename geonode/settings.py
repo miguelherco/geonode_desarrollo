@@ -2028,7 +2028,7 @@ SOCIALACCOUNT_PROVIDERSS = {
 }
 
 SOCIALACCOUNT_PROVIDERS = {
-    "idmty": {"NAME": "ID Digital Mty+",
+    "geonode_openid_connect": {"NAME": "ID Digital Mty+",
               "SCOPE": [],
               "AUTH_PARAMS": {},
               "COMMON_FIELDS": {"email": "email", "name": "email"},
