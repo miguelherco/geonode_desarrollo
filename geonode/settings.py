@@ -2029,9 +2029,9 @@ SOCIALACCOUNT_PROVIDERSS = {
 
 SOCIALACCOUNT_PROVIDERS = {
     "geonode_openid_connect": {"NAME": "ID Digital Mty+",
-              "SCOPE": [],
+              "SCOPE": ["email", "profile", "openid"],
               "AUTH_PARAMS": {},
-              "COMMON_FIELDS": {"email": "email", "name": "email"},
+              "COMMON_FIELDS": {"email": "email", "name": "displayName"},
               "ACCESS_TOKEN_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/token",
               "AUTHORIZE_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/auth",
               "OAUTH_PKCE_ENABLED": True}
