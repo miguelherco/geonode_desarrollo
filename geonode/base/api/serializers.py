@@ -114,6 +114,15 @@ class ResourceBaseToRepresentationSerializerMixin(DynamicModelSerializer):
                 dehydrated.append(formatted_link)
             if len(dehydrated) > 0:
                 data["links"] = dehydrated
+            data['download_file_url'] = None
+            if instance.files:
+                files = instance.files
+                if len(files) == 1:
+                    filepath = files[0]
+                    ext = filepath.split('.')[-1].lower()
+                    if ext in ['gpkg', 'json', 'geojson', 'tiff', 'tif', 'csv']:
+                        path = settings.MEDIA_URL + filepath.split(settings.MEDIA_URL)[-1]
+                        data['download_file_url'] = build_absolute_uri(path)
         return data
 
 
