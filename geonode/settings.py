@@ -2037,6 +2037,8 @@ SOCIALACCOUNT_PROVIDERS = {
               "OAUTH_PKCE_ENABLED": True}
 }
 
+SOCIALACCOUNT_PROVIDERSSS = '{"geonode_openid_connect": {"NAME": "ID Digital Mty+", "SCOPE": ["email", "profile", "openid"], "AUTH_PARAMS": {}, "COMMON_FIELDS": {"email": "email", "name": "displayName"}, "ACCESS_TOKEN_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/token", "AUTHORIZE_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/auth", "OAUTH_PKCE_ENABLED": True}}'
+
 # Invitation Adapter
 INVITATIONS_ADAPTER = ACCOUNT_ADAPTER
 INVITATIONS_CONFIRMATION_URL_NAME = "geonode.invitations:accept-invite"
