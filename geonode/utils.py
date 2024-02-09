@@ -290,6 +290,7 @@ def mkdtemp(dir=settings.MEDIA_ROOT):
     while not tempdir:
         try:
             tempdir = tempfile.mkdtemp(dir=dir)
+            os.chmod(tempdir, 0o755)
             if os.path.exists(tempdir) and os.path.isdir(tempdir):
                 if os.listdir(tempdir):
                     raise Exception("Directory is not empty")
