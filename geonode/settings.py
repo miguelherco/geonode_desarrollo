@@ -2015,8 +2015,18 @@ _GOOGLE_SOCIALACCOUNT_PROVIDER = {
 SOCIALACCOUNT_PROVIDERS_DEFS = {"azure": _AZURE_SOCIALACCOUNT_PROVIDER, "google": _GOOGLE_SOCIALACCOUNT_PROVIDER}
 
 _SOCIALACCOUNT_PROVIDER = os.environ.get("SOCIALACCOUNT_PROVIDER", "google")
-SOCIALACCOUNT_PROVIDERS = {
+SOCIALACCOUNT_PROVIDERSS = {
     SOCIALACCOUNT_OIDC_PROVIDER: SOCIALACCOUNT_PROVIDERS_DEFS.get(_SOCIALACCOUNT_PROVIDER),
+}
+
+SOCIALACCOUNT_PROVIDERS = {
+    "idmty": {"NAME": "ID Digital Mty+",
+              "SCOPE": [],
+              "AUTH_PARAMS": {},
+              "COMMON_FIELDS": {"email": "email", "name": "email"},
+              "ACCESS_TOKEN_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/token",
+              "AUTHORIZE_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/auth",
+              "OAUTH_PKCE_ENABLED": True}
 }
 
 # Invitation Adapter
