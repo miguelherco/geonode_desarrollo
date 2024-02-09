@@ -2035,7 +2035,15 @@ SOCIALACCOUNT_PROVIDERS = {
               "ACCESS_TOKEN_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/token",
               "AUTHORIZE_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/auth",
               "PROFILE_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/userinfo",
-              "OAUTH_PKCE_ENABLED": True}
+              "OAUTH_PKCE_ENABLED": True},
+    "geonode_openid_connect2": {"NAME": "ID Digital Mty+ 2",
+                               "SCOPE": ["email", "profile", "openid"],
+                               "AUTH_PARAMS": {},
+                               "COMMON_FIELDS": {"email": "email", "name": "displayName"},
+                               "ACCESS_TOKEN_URL": "https://iam.dev.appsmty.gob.mx/realms/GobMty/protocol/openid-connect/token",
+                               "AUTHORIZE_URL": "https://iam.dev.appsmty.gob.mx/realms/GobMty/protocol/openid-connect/auth",
+                               "PROFILE_URL": "https://iam.dev.appsmty.gob.mx/realms/GobMty/protocol/openid-connect/userinfo",
+                               "OAUTH_PKCE_ENABLED": True}
 }
 
 SOCIALACCOUNT_PROVIDERSSS = '{"geonode_openid_connect": {"NAME": "ID Digital Mty+", "SCOPE": ["email", "profile", "openid"], "AUTH_PARAMS": {}, "COMMON_FIELDS": {"email": "email", "name": "displayName"}, "ACCESS_TOKEN_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/token", "AUTHORIZE_URL": "https://iam.dev.appsmty.gob.mx/realms/IDMty/protocol/openid-connect/auth", "OAUTH_PKCE_ENABLED": True}}'
