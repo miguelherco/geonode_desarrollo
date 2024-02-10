@@ -59,7 +59,7 @@
 {% endif %}
 {% endif %}
 
-  <h3>{{ profile.first_name|default:profile.name_long }}</h3>
+  <!-- <h3>{{ profile.first_name|default:profile.name_long }}</h3> -->
   <table class="table table-user-profile">
     <tbody>
       {% if user.is_authenticated and user == profile or user.is_superuser or user.is_staff %}
@@ -73,6 +73,7 @@
         {% endif %}
       </tr>
       {% endif %}
+      <!--
       <tr>
         <td class="table-user-profile-attribute">{% trans 'Organization'  %}</td>
         <td>{{ profile.organization | default:_('Not provided.') }}</td>
@@ -101,6 +102,7 @@
         <td class="table-user-profile-attribute">{% trans 'Fax' %}</td>
         <td>{{ profile.fax | default:_('Not provided.') }}</td>
       </tr>
+      -->
       <tr>
         <td class="table-user-profile-attribute">{% trans 'Keywords' %}</td>
         <td>
@@ -122,6 +124,7 @@
       {% endif %}
     </tbody>
   </table>
+  {% comment %}
   {% if USE_GEOSERVER and DISPLAY_WMS_LINKS %}
   <p>
       {% if request.user.is_authenticated and access_token %}
@@ -134,10 +137,13 @@
 </div>
 
 <div class="col-xs-12 col-md-3">
-  <ul class="list-group">
+    {% comment %}
+    <ul class="list-group">
       <li class="list-group-item"><a href="{% url "message_create" profile.pk %}"><i class="fa fa-paper-plane-o"></i> {% trans "Message User" %}</a></li>
     </ul>
+    {% endcomment %}
   {% if user == profile %}
+    {% comment %}
     <ul class="list-group">
       {% if not READ_ONLY_MODE %}
         <li class="list-group-item"><a href="{% url "profile_edit" user.username %}"><i class="fa fa-edit"></i> {% trans "Edit profile" %}</a></li>
@@ -150,6 +156,7 @@
         <li class="list-group-item"><a href="{% url "account_change_password" %}"><i class="fa fa-lock"></i> {% trans "Set/Change password" %}</a></li>
       {% endif %}
     </ul>
+    {% endcomment %}
     <ul class="list-group">
       <li class="list-group-item"><a href="{% url "user-activity" profile.username %}"><i class="fa fa-fire"></i> {% trans "My Activities" %}</a></li>
     </ul>
@@ -157,14 +164,19 @@
       {% if USE_NOTIFICATIONS %}
       <li class="list-group-item"><a href="{% url "pinax_notifications:notice_settings" %}"><i class="fa fa-bell"></i> {% trans "Notifications" %}</a></li>
       {% endif %}
+
+    {% comment %}
       {% if perms.announcements.can_manage %}
       <li class="list-group-item"><a href="{% url "announcements_list" %}"><i class="fa fa-bullhorn"></i> {% trans "Announcements" %}</a></li>
       {% endif %}
+    {% endcomment %}
     </ul>
     <ul class="list-group">
+      {% comment %}
       {% if not READ_ONLY_MODE %}
         <li class="list-group-item"><a href="{% url "geonode.invitations:geonode-send-invite" %}"><i class="fa fa-edit"></i> {% trans "Invite Users" %}</a></li>
       {% endif %}
+      {% endcomment %}
       {% if user.is_superuser or user.is_staff %}
           <li class="list-group-item"><a href="{{ OGC_SERVER.default.WEB_UI_LOCATION }}"><i class="fa fa-gears"></i> {% trans "GeoServer" %}</a></li>
           <li class="list-group-item"><a href="{% url "admin:index" %}"><i class="fa fa-cog"></i> {% trans "Admin" %}</a></li>
