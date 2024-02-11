@@ -73,7 +73,7 @@
         {% endif %}
       </tr>
       {% endif %}
-      <!--
+
       <tr>
         <td class="table-user-profile-attribute">{% trans 'Organization'  %}</td>
         <td>{{ profile.organization | default:_('Not provided.') }}</td>
@@ -98,11 +98,12 @@
             <td>{% trans "Not provided" %}.</td>
         {% endif %}
       </tr>
+      <!--
       <tr>
         <td class="table-user-profile-attribute">{% trans 'Fax' %}</td>
         <td>{{ profile.fax | default:_('Not provided.') }}</td>
       </tr>
-      -->
+
       <tr>
         <td class="table-user-profile-attribute">{% trans 'Keywords' %}</td>
         <td>
@@ -115,6 +116,7 @@
             {% endif %}
         </td>
       </tr>
+      -->
       {% else %}
       <tr>
         <td class="table-user-profile-attribute">{% trans 'Organization'  %}</td>
