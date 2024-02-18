@@ -40,7 +40,7 @@ class GenericOpenIDConnectProviderAccount(ProviderAccount):
 
 
 class GenericOpenIDConnectProvider(OAuth2Provider):
-    id = "geonode_openid_connect"
+    id = getattr(settings, "SOCIALACCOUNT_OIDC_PROVIDER", "geonode_openid_connect")
     name = getattr(settings, "SOCIALACCOUNT_PROVIDERS", {}).get(PROVIDER_ID, {}).get("NAME", "GeoNode OpenIDConnect")
     account_class = import_string(
         getattr(settings, "SOCIALACCOUNT_PROVIDERS", {})
